@@ -1,0 +1,25 @@
+
+entity Post {
+	titulo String, 
+    descricao String, 
+    urlImagem String      
+}
+
+entity Perfil {
+	nome String, 
+    urlImagem String,     
+}
+
+entity Grupos {
+	nome String, 
+    urlImagem String,
+}
+
+entity Eventos {
+	nome String, 
+    urlImagem String,
+    data Instant    
+}
+
+
+
