@@ -36,7 +36,7 @@ public class UserDTO {
     private String email;
 
     @Size(max = 256)
-    private String imageUrl;
+        private String imageUrl;
 
     private boolean activated = false;
 

@@ -1,0 +1,27 @@
+{
+    "name": "Eventos",
+    "fields": [
+        {
+            "fieldName": "nome",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "urlImagem",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "data",
+            "fieldType": "Instant"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20181009183429",
+    "entityTableName": "eventos",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

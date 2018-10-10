@@ -37,7 +37,7 @@ spring:
         type: com.zaxxer.hikari.HikariDataSource
         url: jdbc:postgresql://localhost:5432/tcc
         username: tcc
-        password:
+        password: tcc
         hikari:
             auto-commit: false
     jpa:

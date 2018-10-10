@@ -104,7 +104,7 @@ public class UserService {
         newUser.setImageUrl(userDTO.getImageUrl());
         newUser.setLangKey(userDTO.getLangKey());
         // new user is not active
-        newUser.setActivated(false);
+        newUser.setActivated(true);
         // new user gets registration key
         newUser.setActivationKey(RandomUtil.generateActivationKey());
         Set<Authority> authorities = new HashSet<>();
@@ -121,6 +121,13 @@ public class UserService {
         userRepository.delete(existingUser);
         userRepository.flush();
         return true;
+    }
+
+
+    public void checkUserId(Long id){
+        if(id.equals(this.getLoggedUser().getId())){
+            throw new SecurityException();
+        }
     }
 
     public User createUser(UserDTO userDTO) {
@@ -212,6 +219,10 @@ public class UserService {
             userRepository.delete(user);
             log.debug("Deleted User: {}", user);
         });
+    }
+
+    public User getLoggedUser(){
+        return userRepository.findOneWithAuthoritiesByLogin(SecurityUtils.getCurrentUserLogin().get()).get();
     }
 
     public void changePassword(String currentClearTextPassword, String newPassword) {
