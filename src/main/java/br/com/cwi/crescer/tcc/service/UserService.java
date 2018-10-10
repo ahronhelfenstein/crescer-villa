@@ -125,7 +125,7 @@ public class UserService {
 
 
     public void checkUserId(Long id){
-        if(id.equals(this.getLoggedUser().getId())){
+        if(!id.equals(this.getLoggedUser().getId())){
             throw new SecurityException();
         }
     }
