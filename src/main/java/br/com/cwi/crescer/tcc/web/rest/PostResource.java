@@ -104,9 +104,9 @@ public class PostResource {
     @GetMapping("/posts/{id}")
     @Timed
     public ResponseEntity<Post> getPost(@PathVariable Long id) {
-        log.debug("REST request to get Post : {}", id);
         Optional<Post> post = postRepository.findById(id);
         userService.checkUserId(post.get().getUser().getId());
+        log.debug("REST request to get Post : {}", id);
         return ResponseUtil.wrapOrNotFound(post);
     }
 
