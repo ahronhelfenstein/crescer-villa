@@ -76,7 +76,7 @@ public class PostResource {
         if (post.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
         }
-        userService.checkUserId(postRepository.findById(post.getUser().getId()).get().getUser().getId());
+        userService.checkUserId(postRepository.findById(post.getId()).get().getUser().getId());
         Post result = postRepository.save(post);
         return ResponseEntity.ok()
             .headers(HeaderUtil.createEntityUpdateAlert(ENTITY_NAME, post.getId().toString()))
