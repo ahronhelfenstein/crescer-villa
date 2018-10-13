@@ -37,23 +37,23 @@
                     return urlMatches[1];
                 },
                 "securityConfig": function(cb) {
-                    $.getJSON(this.baseUrl() + "/swagger-resources/configuration/security", function(data) {
-                        cb(data);
+                    $.getJSON(this.baseUrl() + "/swagger-resources/configuration/security", function(dataCriacao) {
+                        cb(dataCriacao);
                     });
                 },
                 "uiConfig": function(cb) {
-                    $.getJSON(this.baseUrl() + "/swagger-resources/configuration/ui", function(data) {
-                        cb(data);
+                    $.getJSON(this.baseUrl() + "/swagger-resources/configuration/ui", function(dataCriacao) {
+                        cb(dataCriacao);
                     });
                 }
             };
             window.springfox = springfox;
             window.oAuthRedirectUrl = springfox.baseUrl() + './dist/o2c.html'
 
-            window.springfox.uiConfig(function(data) {
+            window.springfox.uiConfig(function(dataCriacao) {
                 window.swaggerUi = new SwaggerUi({
                     dom_id: "swagger-ui-container",
-                    validatorUrl: data.validatorUrl,
+                    validatorUrl: dataCriacao.validatorUrl,
                     supportedSubmitMethods: ['get', 'post', 'put', 'delete', 'patch'],
                     onComplete: function(swaggerApi, swaggerUi) {
                         initializeSpringfox();
@@ -64,7 +64,7 @@
                             hljs.highlightBlock(e)
                         });
                     },
-                    onFailure: function(data) {
+                    onFailure: function(dataCriacao) {
                         log("Unable to Load SwaggerUI");
                     },
                     docExpansion: "none",
@@ -103,8 +103,8 @@
 
                 function initializeSpringfox() {
                     var security = {};
-                    window.springfox.securityConfig(function(data) {
-                        security = data;
+                    window.springfox.securityConfig(function(dataCriacao) {
+                        security = dataCriacao;
                         if (typeof initOAuth === "function" && oAuthIsDefined(security)) {
                             initOAuth(security);
                         }
@@ -125,11 +125,11 @@
 
                 $('#input_baseUrl').hide();
 
-                $.getJSON(relativeLocation + "/swagger-resources", function(data) {
+                $.getJSON(relativeLocation + "/swagger-resources", function(dataCriacao) {
 
                     var $urlDropdown = $('#select_baseUrl');
                     $urlDropdown.empty();
-                    $.each(data, function(i, resource) {
+                    $.each(dataCriacao, function(i, resource) {
                         var option = $('<option></option>')
                         .attr("value", maybePrefix(resource.location, relativeLocation))
                         .text(resource.name + " (" + resource.location + ")");
@@ -160,7 +160,7 @@
     </div>
 </div>
 
-<div id="message-bar" class="swagger-ui-wrap" data-sw-translate>&nbsp;</div>
+<div id="message-bar" class="swagger-ui-wrap" dataCriacao-sw-translate>&nbsp;</div>
 <div id="swagger-ui-container" class="swagger-ui-wrap"></div>
 </body>
 </html>

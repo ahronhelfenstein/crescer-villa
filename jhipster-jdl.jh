@@ -1,24 +1,24 @@
 
 entity Post {
-	titulo String, 
-    descricao String, 
-    urlImagem String      
+	titulo String,
+    descricao String,
+    urlImagem String
 }
 
 entity Perfil {
-	nome String, 
-    urlImagem String,     
+	nome String,
+    urlImagem String,
 }
 
 entity Grupos {
-	nome String, 
+	nome String,
     urlImagem String,
 }
 
 entity Eventos {
-	nome String, 
+	nome String,
     urlImagem String,
-    data Instant    
+    dataCriacao Instant
 }
 
 

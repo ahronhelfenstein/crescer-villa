@@ -3,7 +3,7 @@ services:
     tcc-postgresql:
         image: postgres:10.4
         # volumes:
-        #     - ~/volumes/jhipster/tcc/postgresql/:/var/lib/postgresql/data/
+        #     - ~/volumes/jhipster/tcc/postgresql/:/var/lib/postgresql/dataCriacao/
         environment:
             - POSTGRES_USER=tcc
             - POSTGRES_PASSWORD=

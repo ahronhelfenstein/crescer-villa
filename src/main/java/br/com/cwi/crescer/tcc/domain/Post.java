@@ -6,7 +6,6 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.time.Instant;
 import java.util.Objects;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
  * A Post.
@@ -34,8 +33,8 @@ public class Post implements Serializable {
     @ManyToOne
     private User user;
 
-    @Column(name = "data")
-    private Instant data = Instant.now();
+    @Column(name = "dataCriacao")
+    private Instant dataCriacao = Instant.now();
 
 
 
@@ -121,12 +120,12 @@ public class Post implements Serializable {
         return Objects.hashCode(getId());
     }
 
-    public Instant getData() {
-        return data;
+    public Instant getDataCriacao() {
+        return dataCriacao;
     }
 
-    public void setData(Instant data) {
-        this.data = data;
+    public void setDataCriacao(Instant dataCriacao) {
+        this.dataCriacao = dataCriacao;
     }
 
     @Override

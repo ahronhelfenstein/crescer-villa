@@ -257,7 +257,7 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
+            <artifactId>spring-boot-starter-dataCriacao-jpa</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -321,7 +321,7 @@
         <!-- Security -->
         <dependency>
             <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-data</artifactId>
+            <artifactId>spring-security-dataCriacao</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
@@ -466,7 +466,7 @@
                             <goal>prepare-agent</goal>
                         </goals>
                         <configuration>
-                            <!-- Sets the path to the file which contains the execution data. -->
+                            <!-- Sets the path to the file which contains the execution dataCriacao. -->
                             <destFile>${project.testresult.directory}/coverage/jacoco/jacoco.exec</destFile>
                         </configuration>
                     </execution>
@@ -518,7 +518,7 @@
                     </dependency>
                     <dependency>
                         <groupId>org.springframework.boot</groupId>
-                        <artifactId>spring-boot-starter-data-jpa</artifactId>
+                        <artifactId>spring-boot-starter-dataCriacao-jpa</artifactId>
                         <version>${spring-boot.version}</version>
                     </dependency>
                     <dependency>
