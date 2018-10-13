@@ -79,7 +79,7 @@ public class PostResource {
         Post postFind = postRepository.findById(post.getId()).get();
         userService.checkUserId(postFind.getUser().getId());
         post.setUser(postFind.getUser());
-        post.setData(postFind.getData());
+        post.setDataCriacao(postFind.getDataCriacao());
         Post result = postRepository.save(post);
         return ResponseEntity.ok()
             .headers(HeaderUtil.createEntityUpdateAlert(ENTITY_NAME, post.getId().toString()))
