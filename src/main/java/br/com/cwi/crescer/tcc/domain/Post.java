@@ -4,6 +4,7 @@ package br.com.cwi.crescer.tcc.domain;
 import javax.persistence.*;
 
 import java.io.Serializable;
+import java.time.Instant;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -32,6 +33,9 @@ public class Post implements Serializable {
 
     @ManyToOne
     private User user;
+
+    @Column(name = "data")
+    private Instant data = Instant.now();
 
 
 
@@ -115,6 +119,14 @@ public class Post implements Serializable {
     @Override
     public int hashCode() {
         return Objects.hashCode(getId());
+    }
+
+    public Instant getData() {
+        return data;
+    }
+
+    public void setData(Instant data) {
+        this.data = data;
     }
 
     @Override
